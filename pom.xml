@@ -7,6 +7,179 @@
     <groupId>com.xiapche.springframeworktest</groupId>
     <artifactId>springframework-test</artifactId>
     <version>1.0-SNAPSHOT</version>
+<properties>
+
+    <spring.version>4.3.7.RELEASE</spring.version>
+</properties>
 
 
+    <!--在一个项目中非常有可能引入不同版本的spring,由于引入第三方包或者其它项目导致。如果没有明确的声明直接的依赖,将会引发一些问题。
+        为了解决这个问题,maven支持BOM依赖。可以import spring-framework-bom在dependencyManagement部分,以保证所有的spring依赖都是相同的版本。不论是直接依赖或者是传递依赖
+        使用BOM的好处还有一个是不用再指定其它spring模块的版本-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+<dependencies>
+
+<!--Spring核心容器包含:spring-core,spring-beans,spring-context,spring-context-support,spring-expression-->
+    <!--spring-core和spring-beans提供基础部分(控制反转和依赖注入)-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+        <exclusions>
+            <exclusion>
+                <!--commons-logging是唯一一个强制外部依赖-->
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--spring-context基于spring-core与spring-beans,添加了:国际化,事件传播,资源加载,上下文容器创建等,并支持EJB,JMX,ApplicationContext是context模块的核心点-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--spring-context-support集成通用的第三方库如:EhCache,Guava,JavaMail,Quartz,模板引擎(Velocity,FreeMarker)-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供表达式语言以查询和操纵运行时对象,是统一表达式语言的扩展。支持:设置获取属性值,方法调用,获取数组、集合内容,逻辑操作,命名变量,基于Ioc容器获取对象-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-expression</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供面向切面编程实现,如拦截方法切入分离功能性实现-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供对AspectJ的集成-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供类分析支持和类加载实现基于特定的应用服务器-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-instrument</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--集成Message,MessageChannel,MessageHandler,并支持注解匹配消息到方法,类似于MVC的注解功能-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-messaging</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!---->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供编程式和声明式事务管理-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--对象关系映射-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--包含特性:生产消息,消费消息。自4.1后,集成了Spring-messaging模块-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jms</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供基于web集成功能:文件上传,web应用上下文,IoC使用Serverlet listeners的初始化,http client,以及远程支持-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--提供MVC以及REST web services实现-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!--使用slf4j-log4j替换spring自带的commons-logging需要以下四个依赖,jcl-over-slf4j是桥接commons-logging与slf4j-->
+    <!--如果使用logback,则只需要两个依赖:jck-over-slf4j,logback-->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>1.5.8</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.5.8</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.5.8</version>
+    </dependency>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.14</version>
+    </dependency>
+
+    <!--如果使用log4j2,则需要以下依赖-->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.7</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-jcl</artifactId>
+        <version>2.7</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>2.7</version>
+    </dependency>
+
+
+</dependencies>
 </project>
