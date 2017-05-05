@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="beanPostProcessor" class="beanlifecycle.MyBeanPostProcessor"></bean>
+    <bean id="beanFactoryPostProcessor" class="beanlifecycle.MyBeanFactoryPostProcessor"></bean>
+    <bean id="person" class="beanlifecycle.Person" init-method="initFirst" destroy-method="destroyFirst" scope="singleton" p:name="che" p:address="d" p:phone="13243545">
+    </bean>
+    <bean id="instantiationAwareBeanPostProcessor" class="beanlifecycle.MyInstantiationAwareBeanPostProcessor"></bean>
+</beans>

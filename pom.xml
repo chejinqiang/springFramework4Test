@@ -10,6 +10,7 @@
 <properties>
 
     <spring.version>4.3.7.RELEASE</spring.version>
+    <aspectj.version>1.8.10</aspectj.version>
 </properties>
 
 
@@ -28,7 +29,15 @@
 
 <dependencies>
 
-<!--Spring核心容器包含:spring-core,spring-beans,spring-context,spring-context-support,spring-expression-->
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>${aspectj.version}</version>
+    </dependency>
+
+
+    <!--Spring核心容器包含:spring-core,spring-beans,spring-context,spring-context-support,spring-expression-->
     <!--spring-core和spring-beans提供基础部分(控制反转和依赖注入)-->
     <dependency>
         <groupId>org.springframework</groupId>
@@ -42,6 +51,8 @@
             </exclusion>
         </exclusions>
     </dependency>
+
+
 
     <dependency>
         <groupId>org.springframework</groupId>
