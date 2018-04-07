@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 import web.model.Quote;
@@ -14,6 +16,8 @@ import web.model.Quote;
  */
 @SpringBootApplication
 @EnableScheduling
+//@ImportResource(locations = {"classpath:beans.xml"})
+@PropertySource("classpath:redis.properties")
 public class App {
 
     public static void main(String[] args) {

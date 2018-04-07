@@ -22,6 +22,13 @@
             </set>
         </property>
     </bean>
+    <bean class="org.springframework.cache.interceptor.CacheInterceptor">
+        <property name="cacheManager" ref="cacheManager" />
+        <property name="cacheOperationSources" ref="annotationCacheOperationSource"/>
+    </bean>
+
+    <bean id="annotationCacheOperationSource" class="org.springframework.cache.annotation.AnnotationCacheOperationSource"/>
+
 
     <!--spring 默认缓存配置,缓存项目为永久生效不会自动过期 -->
     <bean id="defaultCache" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">

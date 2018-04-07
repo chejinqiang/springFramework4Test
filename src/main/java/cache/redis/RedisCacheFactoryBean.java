@@ -75,7 +75,7 @@ public class RedisCacheFactoryBean implements Cache {
    * <p>
    * <使用方法说明>
    * </p>
-   * 
+   *
    * @param obj
    * @return
    */
@@ -100,7 +100,7 @@ public class RedisCacheFactoryBean implements Cache {
    * <p>
    * <使用方法说明>
    * </p>
-   * 
+   *
    * @param bytes
    * @return
    */
@@ -156,11 +156,11 @@ public class RedisCacheFactoryBean implements Cache {
   	public String getName() {
 		return this.name;
 	}
-	
+
 	public long getLiveTime() {
 		return liveTime;
 	}
-	
+
 	public void setLiveTime(long liveTime) {
 		this.liveTime = liveTime;
 	}
