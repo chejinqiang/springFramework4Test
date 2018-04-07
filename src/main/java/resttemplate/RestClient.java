@@ -66,5 +66,4 @@ public class RestClient {
 	 restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 	 String responseResult = restTemplate.postForObject(url, domainParam, String.class);
 	 * */
-
 }
