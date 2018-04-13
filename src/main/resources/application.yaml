@@ -1,0 +1,6 @@
+#YAML是JSON的超集，对继承的、有层次的配置数据方便的格式
+#YAML不能被@propertySource注解加载
+my:
+  servers:
+    - a.txt
+    - b.txt

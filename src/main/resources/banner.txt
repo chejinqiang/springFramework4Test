@@ -1,0 +1,14 @@
+定制banner：
+    1.启动时打印的banner可以被覆盖，通过在类路径下配置banner.txt、banner.jpg、banner.png等。
+SpringBoot加载配置文件优先级：
+    1.jar包外面的，application-{profile}.properties，application-{profile}.yaml
+    2.jar包内部的，application-{prifile}.properties, application-{profile}.yaml
+    3.jar包外部的，application.properties,application.yaml
+    4.jar包内部的，application.properties,application.yaml
+    5.@Configuration类的@PropertySource注解
+    6.SpringApplication.setDefaultProperties
+SpringBoot将会从以下位置读取application.properties文件
+    1.当前目录的/config子目录
+    2.当前目录
+    3.类路径下/config
+    4.类路径

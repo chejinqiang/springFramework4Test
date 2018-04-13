@@ -8,11 +8,13 @@
     <artifactId>springframework-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!--继承Spring的默认属性-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.3.RELEASE</version>
+        <version>2.0.1.RELEASE</version>
     </parent>
+
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
@@ -43,6 +45,17 @@
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-jetty</artifactId>
+    </dependency>
+    <!-- 支持 @ConfigurationProperties 注解 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+    </dependency>
+    <!--开发工具集-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
     <dependency>
@@ -213,7 +226,7 @@
     <dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-redis</artifactId>
-        <version>1.8.4.RELEASE</version>
+        <version>2.0.6.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>redis.clients</groupId>
@@ -222,4 +235,15 @@
     </dependency>
 
 </dependencies>
+
+    <build>
+        <plugins>
+            <!--将spring boot打包成一个可执行jar包,可执行jar(fat jar)会把所有编译后的类以及运行需要的依赖全部打包在一起。使用java -jar即可运行-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
