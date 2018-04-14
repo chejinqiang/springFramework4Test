@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 /**
  * Created by chejinqiang on 2018/4/8.
  * 在SpringBoot启动的时候运行指定的代码和功能。可以实现AppliationRunner或CommandLineRunner接口。这两个接口都提供了

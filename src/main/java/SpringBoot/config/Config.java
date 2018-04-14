@@ -1,5 +1,8 @@
 package SpringBoot.config;
 
+import SpringBoot.component.MyBean2;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -13,4 +16,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
+    /**
+     * 将@ConfigurationProperties绑定到@Bean上，对于想绑定属性到第三方组件非常有用。
+     * */
+    @ConfigurationProperties(prefix = "my2")
+    @Bean
+    public MyBean2 anotherMyBean2(){
+        return new MyBean2();
+    }
 }

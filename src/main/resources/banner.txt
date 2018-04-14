@@ -12,3 +12,7 @@ SpringBoot将会从以下位置读取application.properties文件
     2.当前目录
     3.类路径下/config
     4.类路径
+SpringBoot日志处理：
+    如果使用starters，默认日志为logback，默认为控制台输入
+    日志格式：时间，日志级别，进程id，线程名称，logger name，实际的日志内容
+    文件输出：指定logging.file，logging.path属性
