@@ -16,3 +16,12 @@ SpringBoot日志处理：
     如果使用starters，默认日志为logback，默认为控制台输入
     日志格式：时间，日志级别，进程id，线程名称，logger name，实际的日志内容
     文件输出：指定logging.file，logging.path属性
+
+Spring框架的核心技术：
+    IOC:又称DI
+    AOP
+org.springframework.beans和org.springframework.context包是Spring IOC的基础。
+BeanFactory接口为管理任意类型的对象提供了高级配置机制，ApplicationContext是BeanFactory的子接口，添加了AOP、消息处理
+、事件发布等功能。
+bean是被Spring容器实例化、管理的对象，ApplicationContext代表了Spring容器，ApplicationContext通过configuration metadata
+知道什么对象被初始化、被配置。configuration metadata是通过XML、java注解等方式得到的各对象间的关系。

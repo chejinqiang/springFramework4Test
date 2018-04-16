@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--bean will be create by createInstance()方法-->
+    <bean id="clientService" class="web.service.ClientService" factory-method="createInstance"/>
+
+    <!--目标bean的目标方法创建新的bean-->
+    <bean id="serviceLocator" factory-bean="clientService" factory-method="getServiceLocator"/>
+
+    <bean id="student" class="web.model.Student"/>
+    <bean id="school" class="web.model.Student"/>
+    <bean id="factoryBeanPojo" class="web.service.FactoryBeanPojo">
+        <property name="type" value="student"/>
+    </bean>
+</beans>
