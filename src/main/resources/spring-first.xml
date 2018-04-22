@@ -10,8 +10,14 @@
     <bean id="serviceLocator" factory-bean="clientService" factory-method="getServiceLocator"/>
 
     <bean id="student" class="web.model.Student"/>
-    <bean id="school" class="web.model.Student"/>
+    <!--基于构造方法的注入-->
+    <bean id="school" class="web.model.School">
+        <constructor-arg name="schoolName" value="schoolName"/>
+        <constructor-arg name="address" value="address"/>
+        <constructor-arg name="studentNumber" value="2"/>
+    </bean>
     <bean id="factoryBeanPojo" class="web.service.FactoryBeanPojo">
         <property name="type" value="student"/>
     </bean>
+
 </beans>

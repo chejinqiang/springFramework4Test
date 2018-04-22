@@ -8,6 +8,13 @@ public class School {
     private String address;
     private int studentNumber;
 
+    public School(){}
+    public School(String schoolName,String address,int studentNumber) {
+        this.schoolName = schoolName;
+        this.address = address;
+        this.studentNumber = studentNumber;
+    }
+
     public String getSchoolName() {
         return schoolName;
     }

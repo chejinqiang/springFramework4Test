@@ -18,10 +18,16 @@ SpringBoot日志处理：
     文件输出：指定logging.file，logging.path属性
 
 Spring框架的核心技术：
-    IOC:又称DI
+    IOC:又称DI，容器自动注入依赖，对象并不主动去查找依赖。DI有两种主要形式：基于构造参数的注入和基于setter方法的注入。
+        对于确定性的依赖使用基于构造参数的注入而对于可选的依赖使用基于setter方法的注入是一个好的选择。在setter方法上使用@Required
+        注解会标识该属性是一个必要的依赖。
     AOP
 org.springframework.beans和org.springframework.context包是Spring IOC的基础。
 BeanFactory接口为管理任意类型的对象提供了高级配置机制，ApplicationContext是BeanFactory的子接口，添加了AOP、消息处理
 、事件发布等功能。
 bean是被Spring容器实例化、管理的对象，ApplicationContext代表了Spring容器，ApplicationContext通过configuration metadata
 知道什么对象被初始化、被配置。configuration metadata是通过XML、java注解等方式得到的各对象间的关系。
+
+依赖解决过程：
+    1.ApplicationContext创建并初始化configuration metadata(描述了所有的bean)。
+    2.对于每一个bean，依赖会被表达为属性、构造参数、或者静态工厂方法的构造参数，只有当bean实际被创建的时候，这些依赖才会被注入。
