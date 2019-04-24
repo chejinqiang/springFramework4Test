@@ -102,9 +102,4 @@
         <property name="connectionFactory" ref="connectionFactory" />
     </bean>
 
-    <bean id="beanPostProcessor" class="beanlifecycle.MyBeanPostProcessor"></bean>
-    <bean id="beanFactoryPostProcessor" class="beanlifecycle.MyBeanFactoryPostProcessor"></bean>
-    <bean id="person" class="beanlifecycle.Person" init-method="initFirst" destroy-method="destroyFirst" scope="singleton" p:name="che" p:address="d" p:phone="13243545">
-    </bean>
-    <bean id="instantiationAwareBeanPostProcessor" class="beanlifecycle.MyInstantiationAwareBeanPostProcessor"></bean>
 </beans>

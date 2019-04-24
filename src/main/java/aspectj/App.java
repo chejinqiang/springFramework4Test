@@ -1,7 +1,7 @@
 package aspectj;
 
-import org.aspectj.weaver.ast.Call;
-import org.aspectj.weaver.loadtime.definition.Definition;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author chejinqiang
@@ -21,10 +21,7 @@ import org.aspectj.weaver.loadtime.definition.Definition;
 public class App {
 
 public static void main(String[] args){
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("aop.xml");
 
 }
-
-//定义切点
-
-
 }
